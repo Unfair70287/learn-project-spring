@@ -63,7 +63,7 @@ public class CourseController {
 	}
 	
 	@PostMapping("/update")
-    public String updateCourse(@ModelAttribute("cosBean") CourseBean courseBean) {
+    public String updateCourse(CourseBean courseBean) {
 		System.out.println(courseBean.getCourse_picture());
         cService.updateOne(courseBean);
         return "redirect:/courseList";

@@ -90,8 +90,8 @@
 <tr>
     <td>課程封面圖片:</td>
     <td><img src="<%=bean.getCourse_picture() %>" id ="img" alt="" title="" width="200" height="150">
-     <input id="imgPath" type="hidden" name="course_picture" title="課程封面圖片" value="<%= bean.getCourse_picture() %>">
-        <input onchange="previewImg(this)" type="file" name="course_picture" title="課程封面圖片"> 
+     <input id="imgPath" type="hidden" name="course_picture" title="課程封面圖片" value="<%=bean.getCourse_picture() %>">
+        <input onchange="previewImg(this)" type="file" title="課程封面圖片"> 
     </td>
 </tr>
 
