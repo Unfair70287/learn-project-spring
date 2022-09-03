@@ -1,0 +1,1 @@
+"use strict";$(document).ready(function(){if($(".flot-chart")[0]){$(".flot-chart").bind("plothover",function(a,c,b){if(b){var d=b.datapoint[0].toFixed(2),e=b.datapoint[1].toFixed(2);$(".flot-tooltip").html(b.series.label+" of "+d+" = "+e).css({top:b.pageY+5,left:b.pageX+5}).show()}else{$(".flot-tooltip").hide()}});$('<div class="flot-tooltip"></div>').appendTo("body")}});

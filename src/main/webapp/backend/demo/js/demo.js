@@ -1,0 +1,1 @@
+"use strict";$(document).ready(function(){var a;$("body").on("click",".animation-demo .card-body .btn",function(){var b=$(this).text();var c=$(this).closest(".card").find("img");if(b==="hinge"){a=2100}else{a=1200}c.removeAttr("class");c.addClass("animated "+b);setTimeout(function(){c.removeClass(b)},a)})});
