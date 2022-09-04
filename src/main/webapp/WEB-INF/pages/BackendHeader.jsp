@@ -111,7 +111,7 @@
 
                 <ul class="navigation">
                     <li class="navigation__active"><a href="Index.jsp"><i class="zmdi zmdi-home"></i>前台首頁</a></li>
-                    <li><a href="typography.html"><i class="zmdi zmdi-format-underlined"></i>會員管理</a></li>
+                    <li><a href="memberList"><i class="zmdi zmdi-format-underlined"></i>會員管理</a></li>
                     <li class="navigation__sub"><a href=""><i class="zmdi zmdi-view-week"></i>試卷管理</a>
                         <ul>
                             <li><a href="hidden-sidebar.html">全部試卷</a></li>
