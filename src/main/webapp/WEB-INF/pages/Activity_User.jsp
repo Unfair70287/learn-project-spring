@@ -48,7 +48,7 @@
 
 <body>
 <!-- 
-<jsp:include page="header.jsp"/>
+<jsp:include page="Header.jsp"/>
  -->
 	<div id="box">
 
@@ -75,20 +75,20 @@
 			<form class="activity_form" >
 			<div class="preview">
 				<div class="img_parent">
-					<input class="data" name="activity_imgPath" type="text" value="<%=activity.getImgPath()%>" readonly />
-					<input class="data" name="activity_id" type="text" value="<%=activity.getId()%> " readonly/>
+					<input class="data" name="imgPath" type="text" value="<%=activity.getImgPath()%>" readonly />
+					<input class="data" name="id" type="text" value="<%=activity.getId()%> " readonly/>
 					<img class="activity_img" id="activity_img"  src="<%=activity.getImgPath()%>" alt="">
 				</div>
 				<div class="activity_text">
-					<input class="title" name="activity_title" type="text" value="<%=activity.getTitle()%>" readonly>
-					<textarea class="introduction" name="activity_content" cols="30" readonly><%=activity.getContent()%></textarea>
+					<input class="title" name="title" type="text" value="<%=activity.getTitle()%>" readonly>
+					<textarea class="introduction" name="content" cols="30" readonly><%=activity.getContent()%></textarea>
 					
 				</div>
 				
 			</div>
 			<br>
-			<input class="activity_start_time" name="activity_start_time" type="datetime-local" value="<%=activity.getStart_time()%>" readonly/>~
-			<input class="activity_end_time" name="activity_end_time" type="datetime-local" value="<%=activity.getEnd_time()%>"  readonly/>
+			<input class="activity_start_time" name="start_time" type="datetime-local" value="<%=activity.getStart_time()%>" readonly/>~
+			<input class="activity_end_time" name="end_time" type="datetime-local" value="<%=activity.getEnd_time()%>"  readonly/>
 		</form>
 			<%
 			}

@@ -43,6 +43,8 @@ public class RootAppConfig {
 	
 	private Properties addtionalPropertites() {
 		Properties props = new Properties();
+		
+		//
 		props.put("hibernate.dialect", org.hibernate.dialect.SQLServerDialect.class);
 		props.put("hibernate.show_sql", Boolean.TRUE);
 		props.put("hibernate.format_sql", Boolean.TRUE);

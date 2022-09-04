@@ -79,7 +79,7 @@ margin:0px auto;
 </head>
 <body>
 <!-- 
-<jsp:include page="header.jsp"/>
+<jsp:include page="Header.jsp"/>
  -->
 
 	<div id="box">
@@ -89,15 +89,15 @@ margin:0px auto;
 			<form class="" name="activity_form" action="Activity_OP"method="post">
 			
 					<h2>標題:</h2>
-					<input id="editTitle"	 name="activity_title" type="text" value="${activityBean.title} " required>
+					<input id="editTitle"	 name="title" type="text" value="${activityBean.title} " required>
 					<p>
 					<h3>內文:</h3>
-					<textarea id="introduction" name="activity_content" oninput="auto_grow(this)" cols="30" required>${activityBean.content}</textarea>
+					<textarea id="introduction" name="content" oninput="auto_grow(this)" cols="30" required>${activityBean.content}</textarea>
 			<p>
 				<div >
 					<h3>圖片:</h3>
-					<input class="data" name="activity_imgPath" type="text" value="${activityBean.imgPath}" />
-					<input class="data" name="activity_id" type="text" value="${activityBean.id}" />
+					<input class="data" name="imgPath" type="text" value="${activityBean.imgPath}" />
+					<input class="data" name="id" type="text" value="${activityBean.id}" />
 					<img class="activity_img" id="activity_img"  src="${activityBean.imgPath}" alt="">
 					<br>
 					<label class="uploadImgButton" for="uploadPhotos">上傳照片</label>
@@ -107,9 +107,9 @@ margin:0px auto;
 			<div>
 			<h3>時間:</h3>
 			<p>
-			活動開始時間:<input class="activity_start_time" name="activity_start_time" type="datetime-local" value="${activityBean.start_time}" required/>
+			活動開始時間:<input class="activity_start_time" name="start_time" type="datetime-local" value="${activityBean.start_time}" required/>
 			<p>
-			活動結束時間:<input class="activity_end_time" name="activity_end_time" type="datetime-local" value="${activityBean.end_time}"  required/>
+			活動結束時間:<input class="activity_end_time" name="end_time" type="datetime-local" value="${activityBean.end_time}"  required/>
 			<p>
 			</div>
 			<hr>
@@ -158,8 +158,8 @@ margin:0px auto;
 				imgPath.setAttribute('value',response);
 				console.log(imgPath)
             },
-            error: function () {
-                alert('no');
+            error: function (e) {
+                alert(e);
             }
 
         });

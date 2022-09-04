@@ -62,9 +62,9 @@ label{
 </Style>
 </head>
 <body>
-<!-- 
-<jsp:include page="header.jsp"/>
- -->
+
+<jsp:include page="Header.jsp"/>
+
 
 	<div id="box">
      	<h2>活動編輯</h2>
@@ -73,7 +73,7 @@ label{
             <input class="selectInput" type="month" name="select" />
             <button type="submit" name="request" value="查詢">查詢</button>
      	</form>
-     	<form  action="Activity_OP" >
+     	<form  action="Activity_OP/insert" method="post" >
      	<button  name="request" value="新增">新增活動</button>
      	</form>
 		
@@ -85,29 +85,28 @@ label{
 		<%
 						List<ActivityBean> activities = null;
 		//強制轉型					r
-								HttpSession s =request.getSession();
-								activities = (List<ActivityBean>) s.getAttribute("selectAllActivity");
+								activities = (List<ActivityBean>)request.getAttribute("selectAllActivity");
 								if (activities != null) {
 							for (ActivityBean activity : activities) {
 						%>
-		<form class="activity_form" name="activity_form" action="Activity_OP"method="post">
+		<form class="activity_form" name="activity_form" action="Activity_OP/update"method="post">
 			<div class="preview">
 				<div class="img_parent">
-					<input class="data" name="activity_imgPath" type="text" value="<%=activity.getImgPath()%>" />
-					<input class="data" name="activity_id" type="text" value="<%=activity.getId()%>" />
+					<input class="data" name="imgPath" type="text" value="<%=activity.getImgPath()%>" />
+					<input class="data" name="id" type="text" value="<%=activity.getId()%>" />
 					<img class="activity_img" id="activity_img"  src="<%=activity.getImgPath()%>" alt="">
 				</div>
 				<div class="activity_text">
-					<input class="title" name="activity_title" type="text" value="<%=activity.getTitle()%>" readonly>
-					<textarea class="introduction" name="activity_content" cols="30" required><%=activity.getContent()%></textarea>
+					<input class="title" name="title" type="text" value="<%=activity.getTitle()%>" readonly>
+					<textarea class="introduction" name="content" cols="30" required><%=activity.getContent()%></textarea>
 					
 				</div>
 				<input class="activity_button" type="submit" name="request" value="修改" /> 
 				<input class="activity_button" type="submit"name="request" onclick="if( !(confirm('確認刪除?') ) ) return false" value="刪除" />
 			</div>
 			<br>
-			<input class="activity_start_time" name="activity_start_time" type="datetime-local" value="<%=activity.getStart_time()%>" readonly/>~
-			<input class="activity_end_time" name="activity_end_time" type="datetime-local" value="<%=activity.getEnd_time()%>"  readonly/>
+			<input class="activity_start_time" name="start_time" type="datetime-local" value="<%=activity.getStart_time()%>" readonly/>~
+			<input class="activity_end_time" name="end_time" type="datetime-local" value="<%=activity.getEnd_time()%>"  readonly/>
 		</form>
 		<%
 		}
