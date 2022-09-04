@@ -98,13 +98,13 @@ public class ActivityController {
 	}
 
 	// /Activity_OP/insert post
-	@PostMapping("/Activity_OP/insert")
+	@PostMapping("/Activity_OP_insert")
 	public String insertActivities() {
 		return "ActivityInster";
 	}
 	
 	//Activity_OP/update post
-	@PostMapping("/Activity_OP/update")
+	@PostMapping("/Activity_OP_update")
 	public String updateActivities(@RequestParam(required = false) String request,@ModelAttribute ActivityBean activityBean, Model m) {
 		if (request != null) {
 			if (request.equals("修改")) {

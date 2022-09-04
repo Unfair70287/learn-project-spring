@@ -31,7 +31,7 @@ public class ActivityBean {
 	public ActivityBean() {
 
 	}
-	
+
 	public boolean upDate(ActivityBean activity) {
 		if (activity.getTitle() != null) {
 			this.setTitle(activity.getTitle());
@@ -73,7 +73,8 @@ public class ActivityBean {
 	}
 
 	public void setStart_time(String start_time) {
-		this.start_time = start_time;
+		this.start_time = start_time.replaceAll("T", " ");
+		;
 	}
 
 	public String getEnd_time() {
@@ -81,7 +82,7 @@ public class ActivityBean {
 	}
 
 	public void setEnd_time(String end_time) {
-		this.end_time = end_time;
+		this.end_time = end_time.replaceAll("T", " ");
 	}
 
 	public String getImgPath() {
@@ -92,7 +93,15 @@ public class ActivityBean {
 		this.imgPath = imgPath;
 	}
 
-	
+	public void sqlDate() {
+		this.start_time.replaceAll("T", " ");
+		this.end_time.replaceAll("T", " ");
+	}
+
+	public void JspDate() {
+		this.start_time.replaceAll(" ", "T");
+		this.end_time.replaceAll(" ", "T");
+	}
 
 	@Override
 	public String toString() {

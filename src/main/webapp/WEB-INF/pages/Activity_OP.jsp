@@ -73,7 +73,7 @@ label{
             <input class="selectInput" type="month" name="select" />
             <button type="submit" name="request" value="查詢">查詢</button>
      	</form>
-     	<form  action="Activity_OP/insert" method="post" >
+     	<form  action="Activity_OP_insert" method="post" >
      	<button  name="request" value="新增">新增活動</button>
      	</form>
 		
@@ -89,7 +89,7 @@ label{
 								if (activities != null) {
 							for (ActivityBean activity : activities) {
 						%>
-		<form class="activity_form" name="activity_form" action="Activity_OP/update"method="post">
+		<form class="activity_form" name="activity_form" action="Activity_OP_update"method="post">
 			<div class="preview">
 				<div class="img_parent">
 					<input class="data" name="imgPath" type="text" value="<%=activity.getImgPath()%>" />

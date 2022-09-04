@@ -47,6 +47,7 @@ public class ActivityDAO {
 	public boolean insertActivities(ActivityBean activity) {
 		Session session = factory.getCurrentSession();
 		if(activity.getId() == null ) {
+			activity.sqlDate();
 			session.save(activity);
 			return true;
 		}
@@ -73,6 +74,7 @@ public class ActivityDAO {
 		System.out.println(activity.toString());
 		ActivityBean activityBean = session.get(ActivityBean.class, activity.getId());
 		if(activityBean != null ) {
+			activity.sqlDate();
 			return activityBean.upDate(activity);
 		}
 		return false;

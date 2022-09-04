@@ -86,7 +86,7 @@ margin:0px auto;
      	<h2>活動編輯</h2>
 		<div id="hrml_content">
 		<div class="content">
-			<form class="" name="activity_form" action="Activity_OP"method="post">
+			<form action="Activity_OP" method="post">
 			
 					<h2>標題:</h2>
 					<input id="editTitle"	 name="title" type="text" value="${activityBean.title} " required>
