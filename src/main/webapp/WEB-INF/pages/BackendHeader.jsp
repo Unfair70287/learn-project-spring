@@ -165,8 +165,8 @@
 							<li><a href="hidden-sidebar-boxed-layout.html">成人</a></li>
 						</ul></li>
 
-					<li class="navigation__sub"><a href=""><i
-							class="zmdi zmdi-collection-text"></i>專欄管理</a></li>
+					
+					<li><a href="QueryAll"><i class="zmdi zmdi-collection-text"></i>專欄管理</a></li>
 					<li><a href="Activity_OP"><i class="zmdi zmdi-calendar"></i>活動管理</a></li>
 
 					<li><a href="orderList"><i class="zmdi zmdi-widgets"></i>訂單管理</a></li>
