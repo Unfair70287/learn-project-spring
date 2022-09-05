@@ -81,7 +81,13 @@ label{
 }
 
 .activity_button {
-    
+    width:60px;
     height: 170px;
+	
+}
+
+.ActivityInsertButton{
+	width: 70px;
+	height: 40px;
 	
 }
