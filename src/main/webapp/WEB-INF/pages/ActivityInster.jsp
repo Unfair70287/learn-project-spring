@@ -79,9 +79,9 @@ margin:0px auto;
 </head>
 <body>
 
-<!-- 
+
 <jsp:include page="Header.jsp"/>
- -->
+
 
 
 	<div id="box">

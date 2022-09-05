@@ -78,9 +78,8 @@ margin:0px auto;
 </Style>
 </head>
 <body>
-<!-- 
 <jsp:include page="Header.jsp"/>
- -->
+
 
 	<div id="box">
      	<h2>活動編輯</h2>
