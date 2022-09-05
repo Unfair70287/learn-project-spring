@@ -29,7 +29,7 @@
 	%>
 	<c:if test="${mb != null}">
 		<%
-		action = "update";
+		action = "updateUser";
 		%>
 	</c:if>
 	<c:if test="${mb == null}">

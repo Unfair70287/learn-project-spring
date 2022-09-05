@@ -47,7 +47,7 @@
 					<div class="top-bar-right">
 						<div class="header-language"></div>
 						<c:choose>
-							<c:when test="${sessionScope.user == null }">
+							<c:when test="${user == null }">
 
 								<ul class="header-user-links">
 									<li><a href="login.controller" id="btn">登入</a> | <a

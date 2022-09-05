@@ -14,29 +14,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import fourth.bean.MemberBean;
 import fourth.service.MemberService;
 
 @Controller
+@SessionAttributes(names = {"user"})
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
 
-	@GetMapping("/backendIndex")
-	public String showBackendIndex() {
-		return "BackendIndex";
-	}
 
 	@RequestMapping(path = "/login.controller", method = RequestMethod.GET)
 	public String loginController() {
 		return "Login";
 	}
-
 	@RequestMapping(path = "/checklogin.controller", method = RequestMethod.POST)
 	public String processAction(@RequestParam("account") String account, @RequestParam("password") String password,
 			Model m) {
 		Map<String, String> errors = new HashMap<String, String>();
+		
 		m.addAttribute("errors", errors);
 		System.out.println(account);
 		System.out.println(password);
@@ -49,11 +47,12 @@ public class MemberController {
 		if (errors != null && !errors.isEmpty()) {
 			return "Login";
 		}
-		MemberBean result = memberService.checkLogin(account, password);
-		System.out.println("執行result");
-		System.out.println(result);
-		if (result != null) {
-			if (result.getStatus() == 3) {
+		MemberBean user = memberService.checkLogin(account, password);
+		System.out.println("執行user");
+		System.out.println(user);
+		m.addAttribute("user", user);
+		if (user != null) {
+			if (user.getStatus() == 3) {
 
 				return "BackendIndex";
 			} else {
@@ -86,7 +85,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/memberList")
-	public String listCourse(Model m) {
+	public String selectAllMembers(Model m) {
 		List<MemberBean> listMembers = memberService.selectAllMembers();
 		System.out.println("listmembers" + listMembers);
 		m.addAttribute("listMembers", listMembers);
@@ -113,7 +112,7 @@ public class MemberController {
 		return "AddNewUser";
 	}
 
-	@PostMapping("/update")
+	@PostMapping("/updateUser")
 	public String updateUser(MemberBean memberBean) {
 		memberBean.setImg("images/" + memberBean.getImg());
 		memberService.updateUser(memberBean);
@@ -128,7 +127,7 @@ public class MemberController {
 		System.out.println("queryList:" + list);
 		if (list.isEmpty()) {
 			errorMsgMap.put("QueryError", "<font color=red size=5>查無此帳號!!</font>");
-			return "redirect:/memberList";
+			return selectAllMembers(m);
 		} else {
 			m.addAttribute("queryResult", list);
 			return "QueryMemberByAccount";

@@ -28,13 +28,12 @@
 						type="text" name="account" id="account" placeholder="account"
 						autocomplete="off" value=account>
 				</div>
-				<p>${errors.account}</p>
+				
 				<div class=group>
 					<label for="password"><i class="fa-solid fa-lock"></i> </label><input
 						type="password" name="password" id="password"
 						placeholder="password" autocomplete="off" value=password>
 				</div>
-				<p>${errors.password}</p>
 				<div class=group>
 					<input type="checkbox" name="remember me" id="remember me"><label>Remember
 						me</label>
