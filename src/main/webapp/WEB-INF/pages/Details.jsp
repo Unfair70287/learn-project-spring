@@ -103,15 +103,15 @@ CourseBean courseBean = (CourseBean) request.getAttribute("cbean");
                 </li>
             </ul>
         </header>
-        <a href="CourseServlet"><input type="submit" name="return" value="回上頁"></a>
+        <br><br>
 	<div class="main-content main-content-details single no-sidebar">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="breadcrumb-trail breadcrumbs">
 						<ul class="trail-items breadcrumb">
-							<li class="trail-item trail-begin"><a href="BackendIndex.jsp">首頁</a></li>
-							<li class="trail-item"><a href="courseList">課程列表</a></li>
+							<li class="trail-item trail-begin"><a href="backendIndex">首頁</a></li>
+							<li class="trail-item"><a href="course.list">課程列表</a></li>
 							<li class="trail-item trail-end active">課程詳情</li>
 						</ul>
 					</div>

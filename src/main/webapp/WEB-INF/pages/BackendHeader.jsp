@@ -122,7 +122,7 @@
                     </li>
                     <li class="navigation__sub"><a href=""><i class="zmdi zmdi-view-list"></i>課程管理</a>
                         <ul>
-                            <li><a href="courseList">全部課程</a></li>
+                            <li><a href="course.list">全部課程</a></li>
                             <li><a href="hidden-sidebar.html">國中</a></li>
                             <li><a href="boxed-layout.html">高中</a></li>
                             <li><a href="hidden-sidebar-boxed-layout.html">成人</a></li>

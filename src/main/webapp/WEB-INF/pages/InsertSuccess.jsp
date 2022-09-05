@@ -18,7 +18,7 @@ alert("新增課程成功");
 <br><br><br><br><br><br>
 <h1><center>新增成功!!</center></h1>
 <br><br><br>
-<center><a href="courseList"><input type="submit" name="return" value="返回課程列表"></a></center>
+<center><a href="course.list"><input type="submit" name="return" value="返回課程列表"></a></center>
 
 </body>
 </html>

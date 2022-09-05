@@ -29,13 +29,12 @@ integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeM
 <body>
 <jsp:include page="BackendHeader.jsp"/>
 <jsp:include page="Style.jsp" />
-<a href="CourseServlet"><input type="submit" name="return" value="回上頁"></a>
 <br><br><br>
 <center>
 <h1>課程資料</h1>
 </center>
 
-<form action="insert" method="post" onSubmit="return checkNull(this)">
+<form action="course.insert" method="post" onSubmit="return checkNull(this)">
 
 <table class=tb align='center'>
 <tr>
