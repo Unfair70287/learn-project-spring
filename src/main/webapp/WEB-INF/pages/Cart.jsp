@@ -28,7 +28,7 @@
 
 	</c:if>
 	<c:if test="${sessionScope.user.status != 3 }">
-		<jsp:include page="userHeader.jsp" />
+		<jsp:include page="Header.jsp" />
 	</c:if>
 	<div class="container ">
 		<div lass="row justify-content-center ">

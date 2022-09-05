@@ -35,7 +35,7 @@
 		</c:when>
 
 		<c:otherwise>
-			<jsp:include page="userHeader.jsp" />
+			<jsp:include page="Header.jsp" />
 		
 			<jsp:include page="orderUser.jsp" />
 			

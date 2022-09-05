@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<jsp:include page="userHeader.jsp"/>
+<jsp:include page="Header.jsp"/>
 <br>
     <br>
 

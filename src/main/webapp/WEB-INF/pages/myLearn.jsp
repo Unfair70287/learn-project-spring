@@ -23,7 +23,7 @@
 	href="assets/images/smalllogo.png" />
 </head>
 <body>
-	<jsp:include page="userHeader.jsp" />
+	<jsp:include page="Header.jsp" />
 	<c:if test="${sessionScope.user == null}">
 		<%
 		request.getRequestDispatcher("/Login.jsp").forward(request, response);

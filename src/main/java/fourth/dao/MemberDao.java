@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -29,11 +31,13 @@ public class MemberDao {
 		//this.factory = HibernateUtil.getFactory();
 	}
 
-	public MemberBean queryAccountAndPassword(String account, String password)  {
+
+	public MemberBean queryAccountAndPassword(String account, String password) {
+		Session session = factory.getCurrentSession();
+
+		String hql = "from MemberBean m where m.account = :account and m.password = :password";
+
 		try {
-			Session session = factory.getCurrentSession();
-			
-			String hql = "from MemberBean m where m.account = :account and m.password = :password";
 			MemberBean result = session.createQuery(hql, MemberBean.class).setParameter("account", account)
 					.setParameter("password", password).getSingleResult();
 			return result;
@@ -115,13 +119,13 @@ public class MemberDao {
 		return memberBean;
 
 	}
-
-	//透過帳號查詢(list)
+	// 透過帳號查詢(list)
 	public List<MemberBean> QueryUserByAccount(String account) {
 		Session session = factory.getCurrentSession();
-		Query<MemberBean> queryAccount=session.createQuery("from MemberBean where account like :account",MemberBean.class)
-			   .setParameter("account",  "%"+account+ "%");
+		Query<MemberBean> queryAccount = session
+				.createQuery("from MemberBean where account like :account", MemberBean.class)
+				.setParameter("account", "%" + account + "%");
 		return queryAccount.list();
-		
+
 	}
 }

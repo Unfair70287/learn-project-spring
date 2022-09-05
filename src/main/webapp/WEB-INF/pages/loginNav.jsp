@@ -59,11 +59,11 @@
 				<div class="top-bar-right">
 					<div class="header-language"></div>
 
-							<ul class="header-user-links">
-								<li><a href="login" id="btn">登入</a> | <a
-									href="Register.jsp">註冊</a></li>
-								<li></li>
-							</ul>
+					<ul class="header-user-links">
+						<li><a href="login.controller" id="btn">登入</a> | <a
+							href="register.controller">註冊</a></li>
+						<li></li>
+					</ul>
 				</div>
 			</div>
 		</div>

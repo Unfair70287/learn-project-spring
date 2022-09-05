@@ -13,8 +13,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+
+
 @Entity
 @Table(name = "member")
+@Component
 public class MemberBean {
 
 	@Id
@@ -62,7 +67,6 @@ public class MemberBean {
 
 	@OneToMany(mappedBy = "memberBean",cascade = CascadeType.ALL)
 	private List<CartItem> cartItems;
-	
 	
 	public MemberBean(Integer user_id, String nick, String account, String password, int status, String name,
 			String img, String sex, String birthday, String cellphone, String email, String joinDate) {
@@ -208,6 +212,7 @@ public class MemberBean {
 	public void setCartItems(List<CartItem> cartItems) {
 		this.cartItems = cartItems;
 	}
+
 
 	@Override
 	public String toString() {
