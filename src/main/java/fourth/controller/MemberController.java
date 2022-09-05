@@ -14,27 +14,46 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import fourth.bean.MemberBean;
 import fourth.service.MemberService;
 
 @Controller
-@SessionAttributes(names = {"user"})
+@SessionAttributes(names = { "user" })
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
-
-
+	
+	
+	//一般會員查詢
+	@RequestMapping(path = "/user.controller", method = RequestMethod.GET)
+	public String userController() {
+		return "UserSeting";
+	}
+	
+	//登入
 	@RequestMapping(path = "/login.controller", method = RequestMethod.GET)
 	public String loginController() {
 		return "Login";
 	}
+	
+	//登出
+	@RequestMapping(path = "/logout.controller", method = RequestMethod.GET)
+	public String logoutController(Model m,SessionStatus status) {
+		m.addAttribute("user",null);
+		status.setComplete();
+		return "Login";
+	}
+
+	//登入檢查
 	@RequestMapping(path = "/checklogin.controller", method = RequestMethod.POST)
 	public String processAction(@RequestParam("account") String account, @RequestParam("password") String password,
-			Model m) {
+			Model m, SessionStatus status) {
 		Map<String, String> errors = new HashMap<String, String>();
-		
+
 		m.addAttribute("errors", errors);
 		System.out.println(account);
 		System.out.println(password);
@@ -63,13 +82,16 @@ public class MemberController {
 			errors.put("msg", "<font color=red size=6 >帳號或密碼有誤!!</font>");
 			return "Login";
 		}
+		
 	}
 
+	//切入註冊畫面
 	@RequestMapping(path = "/register.controller", method = RequestMethod.GET)
 	public String registerController() {
 		return "Register";
 	}
 
+	//註冊
 	@RequestMapping(path = "/newRegister", method = RequestMethod.POST)
 	public String newRegister(@ModelAttribute("register") MemberBean mb, BindingResult result, Model m) {
 		MemberBean memberBean = new MemberBean();
@@ -78,12 +100,14 @@ public class MemberController {
 		memberBean.setEmail(mb.getEmail());
 		memberBean.setStatus(1);
 		memberService.registerUser(memberBean);
-		System.out.println("註冊會員: "+memberBean);
+		System.out.println("註冊會員: " + memberBean);
 		m.addAttribute("register", mb);
 
 		return "Login";
 	}
 
+	
+	//查詢全部
 	@GetMapping("/memberList")
 	public String selectAllMembers(Model m) {
 		List<MemberBean> listMembers = memberService.selectAllMembers();
@@ -93,11 +117,13 @@ public class MemberController {
 
 	}
 
+	//進入新增畫面
 	@GetMapping("/addNewUser")
 	public String addForm() {
 		return "AddNewUser";
 	}
 
+	//新增會員
 	@PostMapping("/insertNewUser")
 	public String insertMember(@ModelAttribute("memberBean") MemberBean memberBean) {
 		memberBean.setImg("images/" + memberBean.getImg());
@@ -105,6 +131,7 @@ public class MemberController {
 		return "redirect:/memberList";
 	}
 
+	//找尋更新會員
 	@GetMapping("/showEditUser")
 	public String showEditUser(String account, Model m) {
 		MemberBean existingUser = memberService.selectUserByAccount(account);
@@ -112,6 +139,7 @@ public class MemberController {
 		return "AddNewUser";
 	}
 
+	//更新會員
 	@PostMapping("/updateUser")
 	public String updateUser(MemberBean memberBean) {
 		memberBean.setImg("images/" + memberBean.getImg());
@@ -119,6 +147,7 @@ public class MemberController {
 		return "redirect:/memberList";
 	}
 
+	//尋找帳號
 	@PostMapping("/queryAccount")
 	public String queryAccount(@RequestParam("keyword_account") String account, Model m) {
 		HashMap<String, String> errorMsgMap = new HashMap<String, String>();
@@ -135,6 +164,7 @@ public class MemberController {
 
 	}
 
+	//刪除會員
 	@GetMapping("/deleteUser")
 	public String deleteUser(@RequestParam("account") String account, Model m) {
 		memberService.deleteUser(account);

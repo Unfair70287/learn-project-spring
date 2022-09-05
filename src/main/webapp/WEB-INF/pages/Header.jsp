@@ -47,7 +47,7 @@
 					<div class="top-bar-right">
 						<div class="header-language"></div>
 						<c:choose>
-							<c:when test="${user == null }">
+							<c:when test="${sessionScope.user == null }">
 
 								<ul class="header-user-links">
 									<li><a href="login.controller" id="btn">登入</a> | <a
@@ -60,15 +60,15 @@
 								<c:if test="${sessionScope.user.status == 3}">
 									<ul class="header-user-links">
 										<li><a href="#"><b>${sessionScope.user.name}(管理員)</b></a>
-											| <a href="login.controller">登出</a></li>
+											| <a href="logout.controller">登出</a></li>
 										<li></li>
 									</ul>
 
 								</c:if>
 								<c:if test="${sessionScope.user.status != 3}">
 									<ul class="header-user-links">
-										<li><a href=""><b>${sessionScope.user.name}</b></a> | <a
-											href="login.controller">登出</a></li>
+										<li><a href=""><b>${sessionScope.user.name}</b></a> | <a onclick="if( !(confirm('確認登出?') ) ) return false"
+											href="logout.controller">登出</a></li>
 										<li></li>
 									</ul>
 								</c:if>
@@ -77,20 +77,6 @@
 					</div>
 				</div>
 			</div>
-<!-- 			<div class="container"> -->
-<!-- 				<div class="top-bar-left"> -->
-<!-- 					<div class="header-message">Welcome!歡迎來到好學生學習平台</div> -->
-<!-- 				</div> -->
-<!-- 				<div class="top-bar-right"> -->
-<!-- 					<div class="header-language"></div> -->
-<!-- 					<ul class="header-user-links"> -->
-<!-- 						<li><a href="login.controller">登入</a> | <a -->
-<!-- 							href="register.controller">註冊</a></li> -->
-<!-- 						<li></li> -->
-<!-- 					</ul> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
 
 		<div class="container">
 			<div class="main-header1">
@@ -117,8 +103,8 @@
 								</div>
 							</div>
 
-							<div class="block-account block-header teamo-dropdown">
-								<a href="javascript:void(0);" data-teamo="teamo-dropdown"><span
+							<div class="block-account block-header ">
+								<a href="user.controller" data-teamo="teamo-dropdown"><span
 									class="flaticon-user"></span></a>
 								<div class="header-account teamo-submenu">
 									<div class="header-user-form-tabs"></div>
