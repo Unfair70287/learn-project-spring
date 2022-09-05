@@ -23,8 +23,7 @@
 			<figure>
 			</figure>
 			<h2 class="title">註冊</h2>
-			<form method="post" action="RegisterServlet" class="register-form"
-				id="Register-form" onSubmit="return isValid(this);">
+			<form action="newRegister" method="post" modelAttribute="register" class="register-form" id="Register-form" onSubmit="return isValid(this);">
 				<input type="hidden" name="command" value="login">
 				<div class=group>
 					<label for="account"><i class="fa-solid fa-user"></i> </label> <input
@@ -55,7 +54,7 @@
 				</div>
 			</form>
 			<div>
-				已有帳號<a href="login.jsp">登入</a>
+				已有帳號<a href="login.controller">登入</a>
 			</div>
 		</div>
 		<script language="javascript">

@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,6 +69,20 @@ public class MemberController {
 	@RequestMapping(path = "/register.controller", method = RequestMethod.GET)
 	public String registerController() {
 		return "Register";
+	}
+
+	@RequestMapping(path = "/newRegister", method = RequestMethod.POST)
+	public String newRegister(@ModelAttribute("register") MemberBean mb, BindingResult result, Model m) {
+		MemberBean memberBean = new MemberBean();
+		memberBean.setAccount(mb.getAccount());
+		memberBean.setPassword(mb.getPassword());
+		memberBean.setEmail(mb.getEmail());
+		memberBean.setStatus(1);
+		memberService.registerUser(memberBean);
+		System.out.println("註冊會員: "+memberBean);
+		m.addAttribute("register", mb);
+
+		return "Login";
 	}
 
 	@GetMapping("/memberList")

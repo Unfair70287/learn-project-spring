@@ -101,7 +101,7 @@
 
                     </div>
                     <div class="dropdown-menu"><a class="dropdown-item" href="">xxxxx</a><a class="dropdown-item"
-                            href="">查看個人檔案</a><a class="dropdown-item" href="">登出</a></div>
+                            href="">查看個人檔案</a><a class="dropdown-item" href="login.controller">登出</a></div>
 
                 </li>
             </ul>
