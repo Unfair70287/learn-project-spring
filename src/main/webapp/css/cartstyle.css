@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+.tb {
+	border-collapse: collapse;
+	width: 2000px;
+	/*自動斷行*/
+	word-wrap: break-word;
+	table-layout: fixed;
+	margin-left: 130px
+}

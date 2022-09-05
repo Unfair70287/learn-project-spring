@@ -23,11 +23,6 @@ public class CourseController {
 	private CourseService cService;
 
 	
-	@GetMapping("/backendIndex")
-	public String showBackendIndex() {
-		return "BackendIndex";
-	}
-	
 	@GetMapping("/courseList")
 	public String listCourse(Model m) {
 		List<CourseBean> list = cService.selectAll();

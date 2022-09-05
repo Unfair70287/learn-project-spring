@@ -147,7 +147,7 @@
 
                                     </ul>
                                 </li>
-                                <li class="menu-item"><a href="about.html" class="teamo-menu-item-title"
+                                <li class="menu-item"><a href="cartList" class="teamo-menu-item-title"
                                         title="About">購物車</a></li>
                             </ul>
                         </div>

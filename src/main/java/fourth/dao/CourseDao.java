@@ -35,6 +35,9 @@ public class CourseDao  {
 		Session session = factory.getCurrentSession();
 		return session.get(CourseBean.class, course_id);
 	}
+	public CourseBean select(int course_id,Session session) {
+		return session.get(CourseBean.class, course_id);
+	}
 	
 	public List<CourseBean> selectName(String course_name) {
 		Session session = factory.getCurrentSession();

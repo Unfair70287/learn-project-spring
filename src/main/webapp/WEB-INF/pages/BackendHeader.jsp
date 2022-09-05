@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,7 @@
 <body data-ma-theme="green">
 <main class="main">
         <div class="page-loader">
+        
             <div class="page-loader__spinner"><svg viewBox="25 25 50 50">
                     <circle cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
                 </svg></div>
@@ -100,8 +102,8 @@
                             src="backend/demo/img/profile-pics/8.jpg" alt="">
 
                     </div>
-                    <div class="dropdown-menu"><a class="dropdown-item" href="">xxxxx</a><a class="dropdown-item"
-                            href="">查看個人檔案</a><a class="dropdown-item" href="">登出</a></div>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="">${sessionScope.user.name}</a><a class="dropdown-item"
+                            href="">查看個人檔案</a><a class="dropdown-item" href="logout">登出</a></div>
 
                 </li>
             </ul>
@@ -110,7 +112,7 @@
             <div class="scrollbar-inner">
 
                 <ul class="navigation">
-                    <li class="navigation__active"><a href="Index.jsp"><i class="zmdi zmdi-home"></i>前台首頁</a></li>
+                    <li class="navigation__active"><a href="Index"><i class="zmdi zmdi-home"></i>前台首頁</a></li>
                     <li><a href="typography.html"><i class="zmdi zmdi-format-underlined"></i>會員管理</a></li>
                     <li class="navigation__sub"><a href=""><i class="zmdi zmdi-view-week"></i>試卷管理</a>
                         <ul>
@@ -133,8 +135,9 @@
                     </li>
                     <li><a href="calendar.html"><i class="zmdi zmdi-calendar"></i>活動管理</a></li>
 
-                    <li><a href="widgets.html"><i class="zmdi zmdi-widgets"></i>購物車管理</a></li>
+                    <li><a href="orderList"><i class="zmdi zmdi-widgets"></i>訂單管理</a></li>
 
+                    <li><a href="cartList"><i class="zmdi zmdi-widgets"></i>購物車</a></li>
                 </ul>
             </div>
             
