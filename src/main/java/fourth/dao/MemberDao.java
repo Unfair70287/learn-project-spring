@@ -1,5 +1,11 @@
 package fourth.dao;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.sql.DataSource;
+
 import java.util.List;
 
 import org.hibernate.Session;
@@ -9,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import fourth.bean.CartItem;
 import fourth.bean.MemberBean;
 
 @Repository
@@ -17,6 +24,13 @@ public class MemberDao {
 
 	@Autowired
 	private SessionFactory factory;
+	
+	@Autowired
+	DataSource dataSource;
+	public MemberDao() {
+		//this.factory = HibernateUtil.getFactory();
+	}
+
 
 	public MemberBean queryAccountAndPassword(String account, String password) {
 		Session session = factory.getCurrentSession();
@@ -105,7 +119,6 @@ public class MemberDao {
 		return memberBean;
 
 	}
-
 	// 透過帳號查詢(list)
 	public List<MemberBean> QueryUserByAccount(String account) {
 		Session session = factory.getCurrentSession();

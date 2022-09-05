@@ -15,6 +15,8 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+
+
 @Entity
 @Table(name = "member")
 @Component
@@ -58,14 +60,13 @@ public class MemberBean {
 	@Column(name = "joinDate")
 	private String joinDate;
 	
-//	//一個用戶對多個訂單
-//	@OneToMany(mappedBy = "memberBean",cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-//			 CascadeType.DETACH, CascadeType.REFRESH})
-//	List<OrderUser> orderUsers;
-//
-//	@OneToMany(mappedBy = "memberBean",cascade = CascadeType.ALL)
-//	private List<CartItem> cartItems;
-	
+	//一個用戶對多個訂單
+	@OneToMany(mappedBy = "memberBean",cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+			 CascadeType.DETACH, CascadeType.REFRESH})
+	List<OrderUser> orderUsers;
+
+	@OneToMany(mappedBy = "memberBean",cascade = CascadeType.ALL)
+	private List<CartItem> cartItems;
 	
 	public MemberBean(Integer user_id, String nick, String account, String password, int status, String name,
 			String img, String sex, String birthday, String cellphone, String email, String joinDate) {
@@ -186,31 +187,32 @@ public class MemberBean {
 	
 	
 	
-//	public List<OrderUser> getOrderUsers() {
-//		return orderUsers;
-//	}
-//	public void setOrderUsers(List<OrderUser> orderUsers) {
-//		this.orderUsers = orderUsers;
-//	}
-//	
-//	
-//	//用戶加入訂單
-//	public void addorderUsers(OrderUser orderUser) {
-//		
-//		if(orderUsers == null) {
-//			orderUsers = new ArrayList<>();
-//		}
-//		
-//		orderUsers.add(orderUser);
-//	}
-//
-//	public List<CartItem> getCartItems() {
-//		return cartItems;
-//	}
-//
-//	public void setCartItems(List<CartItem> cartItems) {
-//		this.cartItems = cartItems;
-//	}
+	public List<OrderUser> getOrderUsers() {
+		return orderUsers;
+	}
+	public void setOrderUsers(List<OrderUser> orderUsers) {
+		this.orderUsers = orderUsers;
+	}
+	
+	
+	//用戶加入訂單
+	public void addorderUsers(OrderUser orderUser) {
+		
+		if(orderUsers == null) {
+			orderUsers = new ArrayList<>();
+		}
+		
+		orderUsers.add(orderUser);
+	}
+
+	public List<CartItem> getCartItems() {
+		return cartItems;
+	}
+
+	public void setCartItems(List<CartItem> cartItems) {
+		this.cartItems = cartItems;
+	}
+
 
 	@Override
 	public String toString() {

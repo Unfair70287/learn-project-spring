@@ -14,7 +14,7 @@
 	href="assets/images/smalllogo.png" />
 </head>
 <body>
-	<jsp:include page="Header.jsp" />
+	<jsp:include page="loginNav.jsp" />
 	<input type="hidden" id="status"
 		value="<%=request.getAttribute("status")%>">
 

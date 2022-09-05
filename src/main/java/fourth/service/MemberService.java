@@ -1,8 +1,13 @@
 package fourth.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
-import javax.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +21,7 @@ public class MemberService {
 
 	@Autowired
 	private MemberDao mDao;
+	
 
 	// 會員註冊Service
 	public MemberBean registerUser(MemberBean newRegister) {
@@ -49,6 +55,7 @@ public class MemberService {
 		return mDao.selectUserByAccount(account);
 	}
 
+
 	// 會員更新
 	public MemberBean updateUser(MemberBean memberBean) {
 		return mDao.updateUser(memberBean);
@@ -59,4 +66,5 @@ public class MemberService {
 		return mDao.QueryUserByAccount(account);
 	}
 
+	
 }

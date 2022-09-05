@@ -58,7 +58,7 @@
 			<td><center><%=courseBean.getLecturer_name() %></center></td>
 			<td>
 				<%--request.setAttribute("bean", courseBean); --%> <a
-				href="CourseServlet?action=details&course_id=<%=courseBean.getCourse_id()%>"><input
+				href="course.details?action=details&course_id=<%=courseBean.getCourse_id()%>"><input
 					type="submit" name="details" value="查看詳情"></a>
 			</td>
 			
@@ -71,7 +71,7 @@
 		
 	</table>
 	<br><br>
-	<center><a href="courseList"><input type="submit" name="return" value="返回課程列表"></a></center>
+	<center><a href="course.list"><input type="submit" name="return" value="返回課程列表"></a></center>
 	
 </body>
 </html>

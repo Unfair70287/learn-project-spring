@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -25,6 +26,12 @@ public class ExamController {
 	@Autowired
 	private ExamService examService;
 	
+	@GetMapping("/firstExamController")
+	public String first() {
+		return "Exam";
+	}
+	
+	
 	@PostMapping("/ExamController")
 	public String processAction(@RequestParam("todo") String todo,Model m
 			,@RequestParam(defaultValue = "") String subject,@RequestParam(defaultValue = "") String education
@@ -33,6 +40,7 @@ public class ExamController {
 		
 		String nextPage="";
 		List<ExamBean> theExamTable= new ArrayList<ExamBean>();
+		
 		
 		if (todo.equals("upload")) {
 
