@@ -151,10 +151,10 @@
 					<li class="navigation__sub"><a href=""><i
 							class="zmdi zmdi-view-week"></i>試卷管理</a>
 						<ul>
-							<li><a href="hidden-sidebar.html">全部試卷</a></li>
-							<li><a href="hidden-sidebar.html">國中</a></li>
-							<li><a href="boxed-layout.html">高中</a></li>
-							<li><a href="hidden-sidebar-boxed-layout.html">成人</a></li>
+							<li><a href="firstExamController">全部試卷</a></li>
+							<li><a href="firstExamController">國中</a></li>
+							<li><a href="firstExamController">高中</a></li>
+							<li><a href="firstExamController">成人</a></li>
 						</ul></li>
 					<li class="navigation__sub"><a href=""><i
 							class="zmdi zmdi-view-list"></i>課程管理</a>
