@@ -24,14 +24,15 @@ public class MemberDao {
 
 	@Autowired
 	private SessionFactory factory;
-	
+
 	@Autowired
 	DataSource dataSource;
+
 	public MemberDao() {
-		//this.factory = HibernateUtil.getFactory();
+		// this.factory = HibernateUtil.getFactory();
 	}
 
-
+	// 登入驗證
 	public MemberBean queryAccountAndPassword(String account, String password) {
 		Session session = factory.getCurrentSession();
 
@@ -119,6 +120,7 @@ public class MemberDao {
 		return memberBean;
 
 	}
+
 	// 透過帳號查詢(list)
 	public List<MemberBean> QueryUserByAccount(String account) {
 		Session session = factory.getCurrentSession();
@@ -126,6 +128,24 @@ public class MemberDao {
 				.createQuery("from MemberBean where account like :account", MemberBean.class)
 				.setParameter("account", "%" + account + "%");
 		return queryAccount.list();
+
+	}
+
+	// 註冊驗證
+	public MemberBean queryRegister(String account, String password, String email) {
+		Session session = factory.getCurrentSession();
+
+		String hql = "from MemberBean m where m.account = :account and m.password = :password and m.email=:email";
+
+		try {
+			MemberBean result = session.createQuery(hql, MemberBean.class).setParameter("account", account)
+					.setParameter("password", password).setParameter("email", email).getSingleResult();
+			return result;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 
 	}
 }

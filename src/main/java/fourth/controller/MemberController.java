@@ -26,29 +26,28 @@ import fourth.service.MemberService;
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
-	
-	
-	//一般會員查詢
+
+	// 一般會員查詢
 	@RequestMapping(path = "/user.controller", method = RequestMethod.GET)
 	public String userController() {
 		return "UserSeting";
 	}
-	
-	//登入
+
+	// 登入
 	@RequestMapping(path = "/login.controller", method = RequestMethod.GET)
 	public String loginController() {
 		return "Login";
 	}
-	
-	//登出
+
+	// 登出
 	@RequestMapping(path = "/logout.controller", method = RequestMethod.GET)
-	public String logoutController(Model m,SessionStatus status) {
-		m.addAttribute("user",null);
+	public String logoutController(Model m, SessionStatus status) {
+		m.addAttribute("user", null);
 		status.setComplete();
 		return "Login";
 	}
 
-	//登入檢查
+	// 登入檢查
 	@RequestMapping(path = "/checklogin.controller", method = RequestMethod.POST)
 	public String processAction(@RequestParam("account") String account, @RequestParam("password") String password,
 			Model m, SessionStatus status) {
@@ -82,32 +81,42 @@ public class MemberController {
 			errors.put("msg", "<font color=red size=6 >帳號或密碼有誤!!</font>");
 			return "Login";
 		}
-		
+
 	}
 
-	//切入註冊畫面
+	// 切入註冊畫面
 	@RequestMapping(path = "/register.controller", method = RequestMethod.GET)
 	public String registerController() {
 		return "Register";
 	}
 
-	//註冊
+	// 註冊
 	@RequestMapping(path = "/newRegister", method = RequestMethod.POST)
-	public String newRegister(@ModelAttribute("register") MemberBean mb, BindingResult result, Model m) {
+	public String newRegister(@ModelAttribute("register") MemberBean mb, BindingResult result, Model m, String account,
+			String password, String email) {
+		HashMap<String, String> errors = new HashMap<String, String>();
+		m.addAttribute("errors", errors);
 		MemberBean memberBean = new MemberBean();
 		memberBean.setAccount(mb.getAccount());
 		memberBean.setPassword(mb.getPassword());
 		memberBean.setEmail(mb.getEmail());
 		memberBean.setStatus(1);
-		memberService.registerUser(memberBean);
-		System.out.println("註冊會員: " + memberBean);
-		m.addAttribute("register", mb);
-
+		MemberBean checkRegister = memberService.checkRegister(account, password, email);
+		System.out.println("checkRegister: " + checkRegister);
+		if (checkRegister != null) {
+			errors.put("RegisterError", "<font color=red size=4 >已經註冊!!</font>");
+			return "Register";
+		}else {
+			
+			memberService.registerUser(memberBean);
+			System.out.println("註冊會員: " + memberBean);
+			m.addAttribute("register", mb);
+			
+		}
 		return "Login";
 	}
 
-	
-	//查詢全部
+	// 查詢全部
 	@GetMapping("/memberList")
 	public String selectAllMembers(Model m) {
 		List<MemberBean> listMembers = memberService.selectAllMembers();
@@ -117,13 +126,13 @@ public class MemberController {
 
 	}
 
-	//進入新增畫面
+	// 進入新增畫面
 	@GetMapping("/addNewUser")
 	public String addForm() {
 		return "AddNewUser";
 	}
 
-	//新增會員
+	// 新增會員
 	@PostMapping("/insertNewUser")
 	public String insertMember(@ModelAttribute("memberBean") MemberBean memberBean) {
 		memberBean.setImg("images/" + memberBean.getImg());
@@ -131,7 +140,7 @@ public class MemberController {
 		return "redirect:/memberList";
 	}
 
-	//找尋更新會員
+	// 找尋更新會員
 	@GetMapping("/showEditUser")
 	public String showEditUser(String account, Model m) {
 		MemberBean existingUser = memberService.selectUserByAccount(account);
@@ -139,7 +148,7 @@ public class MemberController {
 		return "AddNewUser";
 	}
 
-	//更新會員
+	// 更新會員
 	@PostMapping("/updateUser")
 	public String updateUser(MemberBean memberBean) {
 		memberBean.setImg("images/" + memberBean.getImg());
@@ -147,7 +156,7 @@ public class MemberController {
 		return "redirect:/memberList";
 	}
 
-	//尋找帳號
+	// 尋找帳號
 	@PostMapping("/queryAccount")
 	public String queryAccount(@RequestParam("keyword_account") String account, Model m) {
 		HashMap<String, String> errorMsgMap = new HashMap<String, String>();
@@ -164,7 +173,7 @@ public class MemberController {
 
 	}
 
-	//刪除會員
+	// 刪除會員
 	@GetMapping("/deleteUser")
 	public String deleteUser(@RequestParam("account") String account, Model m) {
 		memberService.deleteUser(account);

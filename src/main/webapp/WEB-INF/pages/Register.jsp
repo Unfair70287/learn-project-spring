@@ -47,7 +47,7 @@
 						type="email" name="email" id="email" placeholder="email"
 						autocomplete="off" value="email@gmail.com">
 				</div>
-				<p>${errorMsgMap.RegisterError}</p>
+				<p>${errors.RegisterError}</p>
 				<div class="button">
 					<input type="submit" name="signin" id="signin"
 						onclick="matchPassword()" value="註冊">
