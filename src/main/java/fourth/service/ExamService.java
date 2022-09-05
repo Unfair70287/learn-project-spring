@@ -14,7 +14,7 @@ import fourth.bean.ExamEduBean;
 import fourth.bean.ExamBean;
 import fourth.bean.ExamSubBean;
 import fourth.dao.ExamDao;
-import util.ExamUtil;
+import fourth.util.ExamUtil;
 
 @Service
 @Transactional

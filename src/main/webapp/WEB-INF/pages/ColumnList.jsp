@@ -15,6 +15,7 @@ response.setDateHeader("Expires", -1); // Prevents caching at the proxy server
 <title>Column List</title>
 </head>
 <body>
+<jsp:include page="Header.jsp" />
  <center> 
 	<h1>Column Management</h1>
 	<h2>

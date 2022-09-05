@@ -33,6 +33,9 @@ public class CartController {
 	@Autowired
 	private CourseService cService;
 	
+	@Autowired
+	CartItem countPriceTotal;
+	
 	@GetMapping(path = "/cartList")
 	public String cartList(Model m) {
 		MemberBean user = (MemberBean)m.getAttribute("user");
@@ -69,8 +72,12 @@ public class CartController {
 	@ResponseBody
 	public String cartTotalCountPrice(Model m) throws IOException {
 		MemberBean user = (MemberBean)m.getAttribute("user");
-		List<CartItem> cartList = cartService.cartList(user.getUser_id());
-		CartItem countPriceTotal = cartService.getCountPriceTotal(cartList);
+		if(user != null) {
+			List<CartItem> cartList = cartService.cartList(user.getUser_id());
+			countPriceTotal = cartService.getCountPriceTotal(cartList);
+		}else {
+			countPriceTotal.setTotalCount(0);
+		}
 		return String.valueOf(countPriceTotal.getTotalCount());
 	}
 }

@@ -144,14 +144,14 @@
 								</form>
 							</div>
 						</c:when>
-						<c:otherwise>
+						<c:when test="${order.status.id != 4}">
 							<form action="updateOrder/${4}/${order.order_id}" method="get">
 								<button
 									onclick="if( !(confirm('確認修改?') ) ) return false ; alert('修改成功!!!');">
 									<center>確認修改</center>
 								</button>
 							</form>
-						</c:otherwise>
+						</c:when>
 					</c:choose>
 
 				</div>

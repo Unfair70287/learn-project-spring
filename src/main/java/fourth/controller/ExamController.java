@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import fourth.bean.ExamBean;
 import fourth.service.ExamService;
-import util.ExamUtil;
+import fourth.util.ExamUtil;
 
 
 //	/ExamMainView
