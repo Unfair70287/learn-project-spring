@@ -24,10 +24,7 @@ public class CourseController {
 	private CourseService cService;
 
 	
-	@GetMapping("/backendIndex")
-	public String showBackendIndex() {
-		return "BackendIndex";
-	}
+
 	
 	@GetMapping("/course.list")
 	public String listCourse(Model m) {

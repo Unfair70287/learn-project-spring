@@ -45,8 +45,7 @@ public class WebAppConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/").setViewName("BackendIndex");
-		registry.addRedirectViewController("/list", "course.list");
+		registry.addViewController("/").setViewName("Index");
 	}
 	
 	@Bean

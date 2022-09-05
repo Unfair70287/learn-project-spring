@@ -1,5 +1,8 @@
 package fourth.bean;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,9 +11,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
+
+import fourth.bean.CartItem;
 
 @Entity
 @Table(name = "course")
@@ -42,6 +48,10 @@ public class CourseBean {
 //	@JoinColumn(name = "subject_id")
 //	private Subject subject;
 
+
+	@OneToMany(mappedBy = "courseBean",cascade = CascadeType.ALL)
+	private List<CartItem> carts;
+		
 	public CourseBean() {
 	}
 
@@ -185,7 +195,7 @@ public class CourseBean {
 //	public void setSubject(Subject subject) {
 //		this.subject = subject;
 //	}
-
+	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -217,6 +227,14 @@ public class CourseBean {
 		builder.append(course_picture);
 		builder.append("]");
 		return builder.toString();
+	}
+
+	public List<CartItem> getCarts() {
+		return carts;
+	}
+
+	public void setCarts(List<CartItem> carts) {
+		this.carts = carts;
 	}
 
 	
