@@ -14,8 +14,8 @@
 <style>
 .tb {
 	border-collapse: collapse;
-	margin-left: 200px;
-	width: 1300px;
+	margin-left: 300px;
+	width: 1200px;
 	/*自動斷行*/
 	word-wrap: break-word;
 	table-layout: fixed;

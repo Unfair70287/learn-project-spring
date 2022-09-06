@@ -1,0 +1,93 @@
+label{
+	display: inline-block;
+    padding: 9px 20px;
+    color: #fff;
+    border: 0;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    -webkit-transition: all .4s ease 0s;
+    -moz-transition: all .4s ease 0s;
+    -o-transition: all .4s ease 0s;
+    transition: all .4s ease 0s;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif
+}
+
+.activity_form {
+    min-width: 1125px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    background-color: #E0E0E0;
+}
+
+.preview {
+    width: 1125px;
+    height: 170px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    margin:auto;
+}
+
+
+
+.img_parent {
+    width: 235px;
+    height: 140px;
+    border-style: solid;
+    border-width: thin;
+    margin: 15px;
+}
+
+.data {
+    display: none
+}
+
+.activity_img {
+    width: 235px;
+    height: 140px;
+}
+
+.activity_text {
+    margin: 15px;
+    width: 712px;
+    height: 140px;
+
+}
+
+
+
+.title {
+    padding: 5px;
+    width: 700px;
+    font-size: 24px;
+    border-width: thin;
+}
+
+.introduction {
+    width: 700px;
+    height: 90px;
+    padding: 5px;
+    font-size: 18px;
+    resize: none;
+}
+.left{
+	left:100%
+}
+
+.activity_button {
+    width:60px;
+    height: 170px;
+	
+}
+
+.ActivityInsertButton{
+	width: 70px;
+	height: 40px;
+	
+}

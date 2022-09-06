@@ -34,12 +34,12 @@
 <br><br><br><br>
 	<div align="center">
 	
-         <form action="queryName" method="post">
+         <form action="course.qname" method="post">
 			<label> 課程名稱 : <input type="text" name="keyword" size="7">
  			</label> <input type="submit" name="query" value="查詢">
  		</form>
 
-		<form action="queryId" method="post">
+		<form action="course.qid" method="post">
 		<label> 課程編號 : <input type="text" name="keyword" size="7"></label> <input
 				type="submit" name="query" value="查詢">
 		</form>
@@ -82,15 +82,15 @@
 			<td><center><%=courseBean.getLecturer_name()%></center></td>
 			<td>
 				<%--request.setAttribute("bean", courseBean); --%> <a
-				href="details?course_id=<%=courseBean.getCourse_id()%>"><input
+				href="course.details?course_id=<%=courseBean.getCourse_id()%>"><input
 					type="submit" name="details" value="查看詳情"></a>
 			</td>
 			<td>
 				<%--request.setAttribute("bean", courseBean); --%> <a
-				href="show?course_id=<%=courseBean.getCourse_id()%>"><input
+				href="course.show?course_id=<%=courseBean.getCourse_id()%>"><input
 					type="submit" name="update" value="修改課程"></a>
 			</td>
-			<td><a href="delete?course_id=<%=courseBean.getCourse_id()%>"><button
+			<td><a href="course.delete?course_id=<%=courseBean.getCourse_id()%>"><button
 						onclick="if( !(confirm('確認刪除?') ) ) return false"  id='delete'
 						type="submit" name="delete" value="刪除課程">刪除課程</button></a></td>
 		</tr>
@@ -104,7 +104,7 @@
 	</table>
 	<br><br>
 	<div align="center">
-		<a href="add"><input type="submit" name="addcourse"
+		<a href="course.add"><input type="submit" name="addcourse"
 			value="新增課程"></a>
 	</div>
 

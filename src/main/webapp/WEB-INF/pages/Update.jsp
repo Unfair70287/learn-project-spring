@@ -28,12 +28,11 @@
 <body>
 <jsp:include page="BackendHeader.jsp"/>
 <jsp:include page="Style.jsp" />
-<a href="CourseServlet"><input type="submit" name="return" value="回上頁"></a>
 <br><br><br>
 <center>
 <h1>課程資料修改</h1>
 </center>
-<form action="update" method="post">
+<form action="course.update" method="post">
 <table class=tb align='center'>
 
 <%  CourseBean bean =(CourseBean)request.getAttribute("bean"); %>

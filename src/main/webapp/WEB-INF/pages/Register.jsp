@@ -23,28 +23,30 @@
 			<figure>
 			</figure>
 			<h2 class="title">註冊</h2>
-			<form action="newRegister" method="post" modelAttribute="register" class="register-form" id="Register-form" onSubmit="return isValid(this);">
+			<form action="newRegister" method="post" modelAttribute="register"
+				class="register-form" id="Register-form"
+				onSubmit="return isValid(this);">
 				<input type="hidden" name="command" value="login">
 				<div class=group>
 					<label for="account"><i class="fa-solid fa-user"></i> </label> <input
-						type="text" name="account" id="account" placeholder="account"
+						type="text" name="account" id="account" placeholder="請輸入帳號"
 						autocomplete="off" value="id" required>
 				</div>
 				<div class=group>
 					<label for="password"><i class="fa-solid fa-lock"></i> </label><input
 						type="password" name="password" id="password"
-						placeholder="password" autocomplete="off" value="pwd"> <span
+						placeholder="請輸入密碼(大小寫有別)" autocomplete="off" value="pwd"> <span
 						id="message1" style="color: red"> </span>
 				</div>
 				<div class=group>
 					<label for="password"><i class="fa-solid fa-lock"></i> </label><input
 						type="password" name="password1" id="password1"
-						placeholder="repeat password" autocomplete="off" value="pwd">
+						placeholder="重複輸入密碼" autocomplete="off" value="pwd">
 					<span id="message2" style="color: red"> </span>
 				</div>
 				<div class=group>
 					<label for="email"><i class="fa-solid fa-envelope"></i></label><input
-						type="email" name="email" id="email" placeholder="email"
+						type="email" name="email" id="email" placeholder="請輸入電子信箱"
 						autocomplete="off" value="email@gmail.com">
 				</div>
 				<p>${errors.RegisterError}</p>
@@ -63,14 +65,17 @@
 					alert("使用者名稱不能為空");
 					return false;
 				}
-				if (form.password.value != form.password1.value) {
-					alert("兩次輸入的密碼不同！");
-					return false;
-				} else if (form.password.value == "") {
+				if (form.password.value == "") {
 					alert("使用者密碼不能為空！");
 					return false;
-				} else
-					return true;
+				} else if (form.password.value == "") {
+					alert("兩次輸入的密碼不同！");
+					return false;
+				} else if (form.email.value == "") {
+					alert("電子信箱不能為空！");
+					return false;
+				}
+				return true;
 			}
 		</script>
 </body>

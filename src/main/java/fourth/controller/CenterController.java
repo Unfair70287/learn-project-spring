@@ -28,33 +28,6 @@ public class CenterController {
 		return "Index";
 	}
 	
-//	@GetMapping("/")
-//	public String enter() {
-//		return "Login";
-//	}
-	
-//	@PostMapping("/login")
-//	public String login(Model m ,String account ,String password) {
-//		System.out.println(account);
-//		System.out.println(password);
-//		MemberBean user = memberService.checkLogin(account, password);
-//		System.out.println(user);
-//		if(user != null) {
-//			if(user.getStatus() == 3) {
-//				m.addAttribute("user",user);
-//				return "BackendIndex";
-//			}else {
-//				m.addAttribute("user",user);
-//				return "Index";
-//			}
-//		}
-//		return "Login";
-//	}
-//	
-//	@GetMapping("/logout")
-//	public String logout(SessionStatus session) {
-//		session.setComplete();
-//		return "Login";
-//	}
+
 	
 }
