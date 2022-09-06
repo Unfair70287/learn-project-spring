@@ -32,7 +32,7 @@
 
 				<div class=group>
 					<label for="account"><i class="fa-solid fa-user"></i> </label> <input
-						type="text" name="account" id="account" placeholder="account"
+						type="text" name="account" id="account" placeholder="請輸入帳號"
 						autocomplete="off" value=account>
 				</div>
 				<!-- <<<<<<< HEAD -->
@@ -42,7 +42,7 @@
 				<div class=group>
 					<label for="password"><i class="fa-solid fa-lock"></i> </label><input
 						type="password" name="password" id="password"
-						placeholder="password" autocomplete="off" value=password>
+						placeholder="請輸入密碼(大小寫有別)" autocomplete="off" value=password>
 				</div>
 				<div class=group>
 					<input type="checkbox" name="remember me" id="remember me"><label>Remember

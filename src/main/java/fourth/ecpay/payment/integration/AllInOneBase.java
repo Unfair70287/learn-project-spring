@@ -39,8 +39,10 @@ public class AllInOneBase {
 			//doc = EcpayFunction.xmlParser(configPath);
 			/* when using testing code*/
 			//String paymentConfPath = "./src/main/resources/payment_conf.xml";
+//			String paymentConfPath = "C:\\Users\\ASUS\\Desktop\\WayneCode\\JavaProjectTWO\\github\\learn-project-spring\\src\\main\\java\\payment_conf.xml";
+			String paymentConfPath = "D:\\webgit\\teamproject\\learn-project-spring\\src\\main\\java\\payment_conf.xml";
 			//String paymentConfPath = "src/main/java/payment_conf.xml";//宣文
-			String paymentConfPath = "C:\\Users\\ASUS\\Desktop\\WayneCode\\JavaProjectTWO\\github\\learn-project-spring\\src\\main\\java\\payment_conf.xml";
+//			String paymentConfPath = "C:\\Users\\ASUS\\Desktop\\WayneCode\\JavaProjectTWO\\github\\learn-project-spring\\src\\main\\java\\payment_conf.xml";
 			//String paymentConfPath = "D:\\project2\\SpringMvcHomework\\src\\main\\java\\payment_conf.xml"; //宇翔
 			//String paymentConfPath = "D:\\GitHub\\learn-project-spring\\src\\main\\java\\payment_conf.xml"; //kai
 			//String paymentConfPath = "C:\\Users\\User\\Documents\\github\\learn-project-spring\\src\\main\\java\\payment_conf.xml"; //wuhsi

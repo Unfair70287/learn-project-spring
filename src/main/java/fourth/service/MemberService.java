@@ -66,5 +66,10 @@ public class MemberService {
 		return mDao.QueryUserByAccount(account);
 	}
 
+	//註冊驗證
+	public MemberBean checkRegister(String account, String password, String email) {
+		return mDao.queryRegister(account, password,email);
+	}
+
 	
 }
