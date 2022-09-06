@@ -68,16 +68,16 @@
 								</td>
 							</c:if>
 
-							<c:if test="${order.status.id == 1}">
-								<td>
+							<td>
+								<c:if test="${order.status.id == 1}">
 									<form action="deleteOrder" method="post"
 										onclick="if( !(confirm('確認刪除?') ) ) return false">
 										<input type="hidden" name="cartID" value="${order.order_id}" />
 										<button>刪除</button>
 									</form>
 
-								</td>
-							</c:if>
+								</c:if>
+							</td>
 
 						</tr>
 					</c:forEach>

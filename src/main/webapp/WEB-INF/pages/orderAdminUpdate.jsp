@@ -26,7 +26,7 @@
 			<div class="col-8">
 				<c:set value="${order}" var="order" />
 				<input type="hidden" name="orderID" value="${order.order_id}">
-				<table class="table table-striped tb">
+				<table class="table table-striped ">
 					<tr>
 						<td colspan="8">
 							<table class="table mb-0" >
@@ -102,7 +102,7 @@
 						</td>
 					</tr>
 				</table>
-				<table class="table tb" >
+				<table class="table " >
 					<tr>
 						<td colspan="7"></td>
 						<td></td>
@@ -131,8 +131,6 @@
 					</tr>
 				</table>
 				<div style="margin: auto; width: 88px;">
-
-
 
 					<c:choose>
 						<c:when

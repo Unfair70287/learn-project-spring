@@ -12,7 +12,7 @@
 	border-collapse: collapse;
 	width: 1100px;
 	/*自動斷行*/
- 	word-wrap: break-word; 
+  	word-wrap: break-word;  
 	table-layout: fixed;
 	margin-left: 130px
 }
@@ -35,11 +35,9 @@
 					<th>會員姓名</th>
 					<th>會員信箱</th>
 					<th>訂單編號</th>
-					<th>會員編號</th>
 					<th>訂單生成日期</th>
 					<th>總數</th>
 					<th>訂單狀態</th>
-					<th>折扣</th>
 					<th>總價</th>
 					<th>詳細</th>
 					<th>刪除</th>
@@ -50,11 +48,9 @@
 							<td>${order.memberBean.name}</td>
 							<td>${order.memberBean.email}</td>
 							<td>${order.order_id }</td>
-							<td>${order.memberBean.user_id }</td>
 							<td>${order.date }</td>
 							<td>${order.totoalcount }</td>
 							<td>${order.status.status }</td>
-							<td>${order.discount }</td>
 							<td>$${order.totoalprice }</td>
 
 							<td>
