@@ -9,38 +9,46 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 import fourth.bean.ExamBean;
+import fourth.bean.ExamQuesBean;
+import fourth.dao.ExamDaoInterface;
 import fourth.service.ExamService;
 import fourth.util.ExamUtil;
 
 
 //	/ExamMainView
 @Controller
+@SessionAttributes(names = {"examQuTable"})
 public class ExamController {
 	
 	@Autowired
 	private ExamService examService;
 	
 	@GetMapping("/firstExamController")
-	public String first() {
-		return "Exam";
+	public String entrance() {
+		
+		String nextPage="Exam";
+		
+		return nextPage;
 	}
 	
 	
 	@PostMapping("/ExamController")
-	public String processAction(@RequestParam("todo") String todo,Model m
+	public String processAction(@RequestParam("todo") String todo, Model m, Model examQuTable
+			,@RequestParam(defaultValue = "") String quSubject,@RequestParam(defaultValue = "") String quEducation
 			,@RequestParam(defaultValue = "") String subject,@RequestParam(defaultValue = "") String education
 			,@RequestParam(defaultValue = "") String examName,@RequestParam(defaultValue = "") String examDate
-			,@RequestParam(defaultValue = "") String examID,@RequestParam(required = false) ExamBean upBean) {
+			,@RequestParam(defaultValue = "") String examID) {
 		
-		String nextPage="";
+		String nextPage="Exam";
 		List<ExamBean> theExamTable= new ArrayList<ExamBean>();
-		
+		List<ExamQuesBean> theExamQuTable= new ArrayList<ExamQuesBean>();
 		
 		if (todo.equals("upload")) {
 
@@ -70,7 +78,9 @@ public class ExamController {
 			
 		}else if (todo.equals("query")) {
 			
-			theExamTable = examService.select(subject,education);
+			System.out.println(quSubject+quEducation);
+			
+			theExamTable = examService.select(quSubject,quEducation);
 			
 			m.addAttribute("examTable", theExamTable);
 			
@@ -86,16 +96,48 @@ public class ExamController {
 			
 		}else if (todo.equals("test")) {
 			
+			
+			
+			theExamQuTable = examService.selectQu(subject,education);
+			
+//			System.err.println(theExamQuTable);
+			
+			m.addAttribute("examQuTable", theExamQuTable);
+			
+			nextPage = "ExamPaper";
 	
 			
-			nextPage = "Exam";
-			
 		}else if(todo.equals("testSubmit")) {
-				
 		
-				
-			nextPage = "Exam";	
+			System.err.println(examQuTable);
 			
+			List<ExamQuesBean> m12=(List<ExamQuesBean>) m.getAttribute("examQuTable");
+			
+			
+			for(int i=0; i < m12.size();i++) {
+				System.err.println("答案為"+m12.get(i).getQuesAnswer());
+			}
+			
+//			int ctCount =0;
+//			//故意多宣告一個陣列長度，讓答案陣列的i與答案參數的i互相相等
+//			String[] guAnswer = new String[11];
+//			
+//			String[] realAnswer = {"0","A","A","A","A","A","A","A","A","A","A"};
+//			//讀取答案
+//			for(int i=1;i<=2;i++) {
+////				guAnswer[i] = request.getParameter("answer"+i);
+//				System.out.println(i+"答案"+guAnswer[i]);
+////				if (guAnswer[i].equals(realAnswer[i]) ) {
+////					ctCount++;
+////				}
+//			}
+//			
+////			System.out.println("答對"+ctCount+"題");
+//			
+//			
+//				
+//			nextPage = "Exam";	
+//			
 		}
 
 		

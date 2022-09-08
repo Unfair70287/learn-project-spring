@@ -11,14 +11,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fourth.bean.ExamEduBean;
+import fourth.bean.ExamQuesBean;
 import fourth.bean.ExamBean;
 import fourth.bean.ExamSubBean;
 import fourth.dao.ExamDao;
+import fourth.dao.ExamDaoInterface;
 import fourth.util.ExamUtil;
 
 @Service
 @Transactional
-public class ExamService {
+public class ExamService  {
 	
 	@Autowired
 	private ExamDao examDao;
@@ -80,7 +82,7 @@ public class ExamService {
 		
 	}
 	
-	//查詢
+	//查詢考卷
 	public List<ExamBean> select(String subString,String eduString){
 		
 		
@@ -89,6 +91,17 @@ public class ExamService {
 		return examDao.select(subIdx,eduIdx);
 		
 	}
+	
+	//查詢考試題目
+	public List<ExamQuesBean> selectQu(String subString,String eduString){
+		
+		
+		Integer subIdx = ExamUtil.getSubIdx(subString);
+		Integer eduIdx = ExamUtil.getEduIdx(eduString);
+		return examDao.selectQu(subIdx,eduIdx);
+		
+	}
+	
 	
 	
 	//查詢全部
