@@ -9,9 +9,9 @@
 </style>
 </head>
 <body>
-	<jsp:include page="BackendHeader.jsp" />
+	<jsp:include page="Header.jsp" />
 	<%
-	List<ExamQuesBean> theQuestable =(List<ExamQuesBean>) session.getAttribute("quesTable");
+	List<ExamQuesBean> theQuestable =(List<ExamQuesBean>) session.getAttribute("examQuTable");
 	%>
 
 	<div>
@@ -24,7 +24,7 @@
 	            </tr>
 
 				<% int i=0;%>
-	            <c:forEach items="${quesTable}" var="que">
+	            <c:forEach items="${examQuTable}" var="que">
 	            <tr>
 	                <td>
 	                	<% i++;%>

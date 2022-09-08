@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import fourth.bean.ExamEduBean;
+import fourth.bean.ExamQuesBean;
 import fourth.bean.ExamBean;
 import fourth.bean.ExamSubBean;
 
@@ -64,9 +65,9 @@ public class ExamDao  {
 	public ExamBean update(Integer updateId, ExamBean examBean) {
 		Session session = sessionFactory.getCurrentSession();
 		ExamBean oldExBean = session.get(ExamBean.class, updateId);
-		System.err.println("Dao內");
-		System.err.println("old="+oldExBean);
-		System.err.println("new="+examBean);
+//		System.err.println("Dao內");
+//		System.err.println("old="+oldExBean);
+//		System.err.println("new="+examBean);
 		
 		if(oldExBean != null) {
 			try {
@@ -97,4 +98,28 @@ public class ExamDao  {
 		
 		return false;
 	}
+	
+	public List<ExamQuesBean> selectQu(Integer subIdx,Integer eduIdx){
+		
+		Session session = sessionFactory.getCurrentSession();
+		
+		ExamSubBean subBean = session.get(ExamSubBean.class, subIdx);
+		ExamEduBean eduBean = session.get(ExamEduBean.class, eduIdx);
+		
+		
+//		static final String QuSel_SQL_STRING = "SELECT TOP 2 * "
+//				+ "FROM ExamQuesBean Orders where subject = :subIdx and "
+//				+ "education = :eduIdx ORDER BY NEWID()";
+		
+		//SQL準備
+		String hql = "FROM ExamQuesBean Orders where subject = :subIdx and "
+					+ "education = :eduIdx";
+		
+		Query<ExamQuesBean> query = session.createQuery(hql).setParameter("subIdx", subBean)
+				 .setParameter("eduIdx", eduBean);
+		
+		return query.list();
+
+	}
+	
 }
