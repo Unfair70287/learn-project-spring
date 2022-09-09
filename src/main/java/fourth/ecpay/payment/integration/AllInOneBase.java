@@ -1,10 +1,6 @@
 package fourth.ecpay.payment.integration;
 
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -54,9 +50,6 @@ public class AllInOneBase {
 //			String paymentConfPath = "D:\\GitHub\\learn-project-spring\\src\\main\\java\\payment_conf.xml"; //kai
 			//String paymentConfPath = "C:\\Users\\User\\Documents\\github\\learn-project-spring\\src\\main\\java\\payment_conf.xml"; //wuhsi
 			//String paymentConfPath = "C:\\github\\learn-project-spring\\src\\main\\java\\payment_conf.xml"; //威 鴻
-			
-			
-			
 			
 			String paymentConfPath =this.getClass().getClassLoader().getResource("").getPath()+"payment_conf.xml"; //威 鴻
 			doc = EcpayFunction.xmlParser(paymentConfPath);
