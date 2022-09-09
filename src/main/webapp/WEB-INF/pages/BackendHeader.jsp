@@ -24,6 +24,7 @@
 </head>
 <body data-ma-theme="green">
 	<main class="main">
+		<!-- 
 		<div class="page-loader">
 
 			<div class="page-loader__spinner">
@@ -33,6 +34,7 @@
                 </svg>
 			</div>
 		</div>
+		-->
 		<header class="header">
 			<div class="navigation-trigger hidden-xl-up"
 				data-ma-action="aside-open" data-ma-target=".sidebar">
