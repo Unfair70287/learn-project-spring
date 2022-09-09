@@ -1,7 +1,6 @@
 package fourth.ecpay.payment.integration;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -29,6 +28,9 @@ public class AllInOneBase {
 	protected static String createServerOrderUrl;
 	protected static Document verifyDoc;
 	protected static String[] ignorePayment;
+	
+	
+	
 	public AllInOneBase(){
 		//try{
 			Document doc;
@@ -42,11 +44,14 @@ public class AllInOneBase {
 //			String paymentConfPath = "C:\\Users\\ASUS\\Desktop\\WayneCode\\JavaProjectTWO\\github\\learn-project-spring\\src\\main\\java\\payment_conf.xml";
 //			String paymentConfPath = "D:\\webgit\\teamproject\\learn-project-spring\\src\\main\\java\\payment_conf.xml";
 			//String paymentConfPath = "src/main/java/payment_conf.xml";//宣文
+//			String paymentConfPath = "C:\\Users\\s0905\\Documents\\Java\\wuyuhsi-git\\learn-project-spring\\src\\main\\java\\payment_conf.xml";//宣文
 //			String paymentConfPath = "C:\\Users\\ASUS\\Desktop\\WayneCode\\JavaProjectTWO\\github\\learn-project-spring\\src\\main\\java\\payment_conf.xml";
 			//String paymentConfPath = "D:\\project2\\SpringMvcHomework\\src\\main\\java\\payment_conf.xml"; //宇翔
-			String paymentConfPath = "D:\\GitHub\\learn-project-spring\\src\\main\\java\\payment_conf.xml"; //kai
+//			String paymentConfPath = "D:\\GitHub\\learn-project-spring\\src\\main\\java\\payment_conf.xml"; //kai
 			//String paymentConfPath = "C:\\Users\\User\\Documents\\github\\learn-project-spring\\src\\main\\java\\payment_conf.xml"; //wuhsi
 			//String paymentConfPath = "C:\\github\\learn-project-spring\\src\\main\\java\\payment_conf.xml"; //威 鴻
+			
+			String paymentConfPath =this.getClass().getClassLoader().getResource("").getPath()+"payment_conf.xml"; //威 鴻
 			doc = EcpayFunction.xmlParser(paymentConfPath);
 			
 			doc.getDocumentElement().normalize();
